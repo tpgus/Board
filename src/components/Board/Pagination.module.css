@@ -3,9 +3,19 @@
   text-align: center;
 }
 
-.pageBtn {
+.btn {
   margin: 1px;
-  color: black;
   font-size: 0.8rem;
   background: none;
+}
+
+.focus {
+  outline: none;
+  background: #a7a7a7;
+  color: white;
+}
+
+.left,
+.right {
+  border: none;
 }

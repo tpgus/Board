@@ -1,4 +1,4 @@
-.Posts {
+.posts {
   width: 100%;
   max-width: 60rem;
   margin: 1rem auto;
@@ -11,4 +11,9 @@
   border-bottom: 3px solid rgb(161, 161, 161);
   font-weight: bold;
   padding: 1rem;
+}
+
+p {
+  padding: 2rem;
+  text-align: center;
 }

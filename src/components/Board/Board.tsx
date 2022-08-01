@@ -12,11 +12,14 @@ interface PostType {
 }
 function Board() {
   const [posts, setPosts] = useState<PostType[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/posts")
-      .then((res) => setPosts(res.data.slice(0, 100)));
+    setIsLoading(true);
+    axios.get("https://jsonplaceholder.typicode.com/posts").then((res) => {
+      setPosts(res.data.slice(0, 100));
+      setIsLoading(false);
+    });
   }, []);
 
   return (

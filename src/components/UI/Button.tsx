@@ -3,6 +3,7 @@ import styles from "./css/Button.module.css";
 interface PropsType {
   children: React.ReactNode;
   className?: string;
+  disabled?: boolean;
   type: "button" | "submit";
   onClick?: () => void;
 }
@@ -13,6 +14,7 @@ function Button(props: PropsType) {
       type={props.type}
       className={`${styles["button"]} ${props.className}`}
       onClick={props.onClick}
+      disabled={props.disabled}
     >
       {props.children}
     </button>
