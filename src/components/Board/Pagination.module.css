@@ -1,0 +1,11 @@
+.buttons {
+  padding: 2rem;
+  text-align: center;
+}
+
+.pageBtn {
+  margin: 1px;
+  color: black;
+  font-size: 0.8rem;
+  background: none;
+}

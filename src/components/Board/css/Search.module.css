@@ -1,0 +1,21 @@
+.search {
+  /* display: flex; */
+  width: 100%;
+  max-width: 60rem;
+  margin: 1rem auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+.search input {
+  padding: 0.7rem;
+}
+
+span {
+  font-weight: bold;
+}
+
+.refresh-icon {
+  margin-left: 0.3rem;
+  cursor: pointer;
+}
