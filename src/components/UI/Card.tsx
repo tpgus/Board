@@ -12,4 +12,5 @@ function Card(props: PropsType) {
     </div>
   );
 }
+
 export default Card;

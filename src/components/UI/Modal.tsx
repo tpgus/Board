@@ -1,21 +1,20 @@
 import styles from "./css/Modal.module.css";
+import ReactDOM from "react-dom";
 import Card from "./Card";
 import Button from "./Button";
-import ReactDOM from "react-dom";
 
 interface PropsType {
   title: string;
   message: string;
-  onCloseModal: () => void;
+  onClose: () => void;
 }
 
 function Modal(props: PropsType) {
   const portalElement = document.getElementById("overlay-root");
-
   return (
     <>
       {ReactDOM.createPortal(
-        <div className={styles["backdrop"]} onClick={props.onCloseModal}></div>,
+        <div className={styles["backdrop"]} onClick={props.onClose}></div>,
         portalElement!
       )}
       {ReactDOM.createPortal(
@@ -27,7 +26,11 @@ function Modal(props: PropsType) {
             <p>{props.message}</p>
           </div>
           <footer className={styles["action"]}>
-            <Button type="button" onClick={props.onCloseModal}>
+            <Button
+              className={styles["close-btn"]}
+              type="button"
+              onClick={props.onClose}
+            >
               닫기
             </Button>
           </footer>

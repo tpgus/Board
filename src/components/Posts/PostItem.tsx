@@ -1,13 +1,7 @@
 import styles from "./css/PostItem.module.css";
+import { PostType } from "./DataType";
 
-interface PropsType {
-  id: string;
-  title: string;
-  body: string;
-  userId: string;
-}
-
-function PostItem(props: PropsType) {
+function PostItem(props: PostType) {
   return (
     <li className={styles["post"]}>
       <div>{props.id}</div>

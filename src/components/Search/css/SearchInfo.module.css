@@ -1,0 +1,14 @@
+.search-info {
+  display: flex;
+  align-items: center;
+  margin-left: 0.5rem;
+}
+
+.search-info span {
+  font-weight: bold;
+}
+
+.refresh-icon {
+  margin-left: 0.3rem;
+  cursor: pointer;
+}
