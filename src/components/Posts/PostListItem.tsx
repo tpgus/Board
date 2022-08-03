@@ -1,7 +1,7 @@
-import styles from "./css/PostItem.module.css";
+import styles from "./css/PostListItem.module.css";
 import { PostType } from "./DataType";
 
-function PostItem(props: PostType) {
+function PostListItem(props: PostType) {
   return (
     <li className={styles["post"]}>
       <div>{props.id}</div>
@@ -11,4 +11,4 @@ function PostItem(props: PostType) {
   );
 }
 
-export default PostItem;
+export default PostListItem;

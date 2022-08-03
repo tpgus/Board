@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./css/PostList.module.css";
 import { PostType, ModalMessageType } from "./DataType";
-import PostItem from "./PostItem";
+import PostListItem from "./PostListItem";
 import Modal from "../UI/Modal";
 import Card from "../UI/Card";
 import Pagination from "./Pagination";
@@ -25,7 +25,7 @@ function PostList(props: PropsType) {
 
   const posts = props.posts
     .slice(offset, offset + postsPerPage)
-    .map((post) => <PostItem key={post.id} {...post} />);
+    .map((post) => <PostListItem key={post.id} {...post} />);
 
   function setPage(pageNumber: number) {
     if (pageNumber === 0) {

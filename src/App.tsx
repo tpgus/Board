@@ -13,6 +13,7 @@ function App() {
   useEffect(() => {
     setIsLoading(true);
     axios.get("https://jsonplaceholder.typicode.com/posts").then((res) => {
+      console.log(res.data);
       setInitialPosts(res.data);
       setFilteredPosts(res.data);
       setIsLoading(false);

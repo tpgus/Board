@@ -38,7 +38,9 @@ function Search(props: PropsType) {
         break;
 
       case "작성자":
-        result = props.posts.filter((post) => post.userId === +value);
+        result = props.posts.filter((post) =>
+          ("작성자 " + post.userId).includes(value)
+        );
         break;
 
       default:
