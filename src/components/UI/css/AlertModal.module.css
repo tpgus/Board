@@ -27,6 +27,11 @@
   font-weight: bold;
 }
 
+.content p {
+  padding: 2rem;
+  text-align: center;
+}
+
 .action {
   padding: 1rem;
   display: flex;

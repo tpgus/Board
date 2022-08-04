@@ -1,4 +1,4 @@
-import styles from "./css/Modal.module.css";
+import styles from "./css/AlertModal.module.css";
 import ReactDOM from "react-dom";
 import Card from "./Card";
 import Button from "./Button";
@@ -9,7 +9,7 @@ interface PropsType {
   onClose: () => void;
 }
 
-function Modal(props: PropsType) {
+function AlertModal(props: PropsType) {
   const portalElement = document.getElementById("overlay-root");
   return (
     <>
@@ -41,4 +41,4 @@ function Modal(props: PropsType) {
   );
 }
 
-export default Modal;
+export default AlertModal;

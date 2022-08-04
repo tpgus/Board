@@ -1,9 +1,9 @@
 import styles from "./css/Search.module.css";
 import { useState, useRef } from "react";
-import { PostType, ModalMessageType } from "../Posts/DataType";
-import Modal from "../UI/Modal";
-import Button from "../UI/Button";
-import Card from "../UI/Card";
+import { PostType, ModalMessageType } from "../DataType";
+import AlertModal from "../../UI/AlertModal";
+import Button from "../../UI/Button";
+import Card from "../../UI/Card";
 import SearchInfo from "./SearchInfo";
 import Options from "./Options";
 
@@ -27,19 +27,20 @@ function Search(props: PropsType) {
 
   function getResultOfSearch(option: string, value: string) {
     let result = props.posts;
+    //정규식 사용하기
+    const searchValue = new RegExp(`${value}`, "i");
     switch (option) {
       case "제목":
-        //최적화
-        result = props.posts.filter((post) => post.title.includes(value));
+        result = props.posts.filter((post) => searchValue.test(post.title));
         break;
 
       case "내용":
-        result = props.posts.filter((post) => post.body.includes(value));
+        result = props.posts.filter((post) => searchValue.test(post.body));
         break;
 
       case "작성자":
         result = props.posts.filter((post) =>
-          ("작성자 " + post.userId).includes(value)
+          searchValue.test("작성자 " + post.userId)
         );
         break;
 
@@ -78,7 +79,7 @@ function Search(props: PropsType) {
 
   return (
     <>
-      {modalMessage && <Modal onClose={closeModal} {...modalMessage} />}
+      {modalMessage && <AlertModal onClose={closeModal} {...modalMessage} />}
       <Card className={styles["search"]}>
         <Options onSelect={selectOptionHandler} />
         <form onSubmit={searchHandler}>

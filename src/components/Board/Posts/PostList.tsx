@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import styles from "./css/PostList.module.css";
-import { PostType, ModalMessageType } from "./DataType";
+import { PostType, ModalMessageType } from "../DataType";
 import PostListItem from "./PostListItem";
-import Modal from "../UI/Modal";
-import Card from "../UI/Card";
+import AlertModal from "../../UI/AlertModal";
+import Card from "../../UI/Card";
+import Post from "./Post";
 import Pagination from "./Pagination";
 
 interface PropsType {
@@ -16,6 +17,7 @@ function PostList(props: PropsType) {
   const [modalMessage, setModalMessage] = useState<ModalMessageType | null>(
     null
   );
+  const [clickedPost, setClickedPost] = useState<PostType | null>(null);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -23,9 +25,15 @@ function PostList(props: PropsType) {
 
   const offset = (currentPage - 1) * postsPerPage;
 
+  function clickPost(post: PostType) {
+    setClickedPost({ ...post });
+  }
+
   const posts = props.posts
     .slice(offset, offset + postsPerPage)
-    .map((post) => <PostListItem key={post.id} {...post} />);
+    .map((post) => (
+      <PostListItem key={post.id} post={post} onClick={clickPost} />
+    ));
 
   function setPage(pageNumber: number) {
     if (pageNumber === 0) {
@@ -45,13 +53,20 @@ function PostList(props: PropsType) {
     setCurrentPage(pageNumber);
   }
 
+  function closePost() {
+    setClickedPost(null);
+  }
+
   function closeModal() {
     setModalMessage(null);
   }
 
   return (
     <>
-      {modalMessage && <Modal onClose={closeModal} {...modalMessage} />}
+      {modalMessage && <AlertModal onClose={closeModal} {...modalMessage} />}
+      {clickedPost && (
+        <Post onClose={closePost} post={clickedPost} posts={props.posts} />
+      )}
       <Card className={styles["posts"]}>
         <div className={styles["label"]}>
           <span>번호</span>

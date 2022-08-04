@@ -8,17 +8,19 @@
   padding: 0;
 }
 
-.ul {
+ul {
   list-style: none;
 }
 
 .board {
-  margin: 2rem 0;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
 
-p {
-  margin-top: 2rem;
+.message {
+  text-align: center;
   font-weight: bold;
+  padding: 2rem;
 }

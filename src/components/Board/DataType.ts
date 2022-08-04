@@ -5,6 +5,14 @@ export interface PostType {
   body: string;
 }
 
+export interface CommentType {
+  postId: number;
+  id: number;
+  name: string;
+  email: string;
+  body: string;
+}
+
 export interface ModalMessageType {
   title: string;
   message: string;
