@@ -84,12 +84,14 @@
 
 
 <details>
-<summary>추가 구현 사항 및 설명</summary>
+<summary>추가 구현 사항 및 구현 방법</summary>
 <div markdown="1">
   
-  - 페이지네이션
-  - 모달
-  - 게시물 검색
+  - [페이지네이션 구현에 대한 설명](https://velog.io/@tpgus758/%EB%A6%AC%EC%95%A1%ED%8A%B8-%ED%8E%98%EC%9D%B4%EC%A7%80%EB%84%A4%EC%9D%B4%EC%85%98-%EA%B5%AC%ED%98%84)
+
+- [모달 구현에 대한 설명](링크)
+
+- [검색 기능 구현에 대한 설명](링크)
   
  </div>
 </details>
@@ -104,7 +106,5 @@
 직접 작성한 Wireframe 혹은 Prototype (figma 등의 다양한 툴 활용)
 
 성능 최적화에 대해서 고민하고 개선한 방법
-
-추가 구현 사항에 대한 구현 방법과 설명
 
 해당 과제에 대해서 소개하고 싶은 내용을 자유롭게 적어주세요.
