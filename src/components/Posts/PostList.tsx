@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import styles from "./css/PostList.module.css";
 import { PostType, ModalMessageType } from "../DataType";
 import PostListItem from "./PostListItem";
-import AlertModal from "../../UI/AlertModal";
-import Card from "../../UI/Card";
+import AlertModal from "../UI/AlertModal";
+import Card from "../UI/Card";
 import Post from "./Post";
 import Pagination from "./Pagination";
 

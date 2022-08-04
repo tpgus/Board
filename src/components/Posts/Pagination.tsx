@@ -1,5 +1,5 @@
 import styles from "./css/Pagination.module.css";
-import Button from "../../UI/Button";
+import Button from "../UI/Button";
 
 interface PropsType {
   postsLength: number;

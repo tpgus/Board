@@ -1,9 +1,9 @@
 import styles from "./css/Search.module.css";
 import { useState, useRef } from "react";
 import { PostType, ModalMessageType } from "../DataType";
-import AlertModal from "../../UI/AlertModal";
-import Button from "../../UI/Button";
-import Card from "../../UI/Card";
+import AlertModal from "../UI/AlertModal";
+import Button from "../UI/Button";
+import Card from "../UI/Card";
 import SearchInfo from "./SearchInfo";
 import Options from "./Options";
 

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import PostList from "./components/Board/Posts/PostList";
-import Search from "./components/Board/Search/Search";
-import { PostType } from "./components/Board/DataType";
+import PostList from "./components/Posts/PostList";
+import Search from "./components/Search/Search";
+import { PostType } from "./components/DataType";
 import "./App.css";
 import axios from "axios";
 

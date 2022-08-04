@@ -7,6 +7,10 @@
   align-items: center;
 }
 
+.comment-count {
+  text-decoration: underline;
+}
+
 .comment {
   display: flex;
   align-items: center;

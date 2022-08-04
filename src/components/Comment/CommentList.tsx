@@ -1,5 +1,6 @@
 import { CommentType } from "../DataType";
 import styles from "./css/CommentList.module.css";
+import { BsArrowReturnRight } from "react-icons/bs";
 
 interface PropsType {
   comments: CommentType[];
@@ -8,6 +9,10 @@ interface PropsType {
 function Comments(props: PropsType) {
   return (
     <ul className={styles["comment-list"]}>
+      <p className={styles["comment-count"]}>
+        <BsArrowReturnRight />
+        {` ${props.comments.length}개`}의 댓글
+      </p>
       {props.comments.map((comment) => (
         <li key={comment.id} className={styles["comment"]}>
           <img
