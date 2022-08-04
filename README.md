@@ -1,6 +1,6 @@
 
 <details>
-<summary>완성된 GIF 파일 및 배포</summary>
+<summary>구현 화면 GIF 및 배포 링크</summary>
 <div markdown="1">
 
 <ul>
