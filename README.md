@@ -1,46 +1,61 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<details>
+<summary>완성된 GIF 파일 및 배포</summary>
+<div markdown="1">
 
-## Available Scripts
+<ul>
+<li>
 
-In the project directory, you can run:
+[배포 링크](https://tpgus.github.io/) 
+</li>
 
-### `npm start`
+<details>
+<summary>게시판 메인 화면</summary>
+<div markdown="1">
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/43470398/182897609-43974897-b36c-4dc2-81a3-a9ba15be8e6a.gif)
+</div>
+</details>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<details>
+<summary>검색 기능</summary>
+<div markdown="1">
 
-### `npm test`
+![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/43470398/182903645-86d5c4dc-5ab7-4b5e-b00b-c8d804683b1a.gif)
+</div>
+</details>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+<details>
+<summary>게시물 상세 및 댓글 보기</summary>
+<div markdown="1">
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/43470398/182908916-bb664507-1227-4902-855c-e4404077f9fe.gif)
+</div>
+</details>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<details>
+<summary>모달</summary>
+<div markdown="1">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![ezgif com-gif-maker (5)](https://user-images.githubusercontent.com/43470398/182912263-15a01a84-c790-4f7a-a650-50f986766d9a.gif)
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+</div>
+</details>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+</ul>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+</div>
+</details>
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 프로젝트 실행 방법
+- 사용한 스택 목록
+- 구현한 기능 목록 (Software Requirement Specification)
+- 구현 방법 혹은 구현하면서 어려웠던 점
+- (가산점) 직접 작성한 Wireframe 혹은 Prototype (figma 등의 다양한 툴 활용)
+- (가산점) 성능 최적화에 대해서 고민하고 개선한 방법
+- (가산점) 추가 구현 사항에 대한 구현 방법과 설명
+- 등 해당 과제에 대해서 소개하고 싶은 내용을 자유롭게 적어주세요.
