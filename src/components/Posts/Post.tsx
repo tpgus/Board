@@ -84,25 +84,30 @@ function Post(props: PropsType) {
         </div>
         {!isLoading && <CommentList comments={comments} />}
         {isLoading && <p>댓글을 불러오는 중입니다...</p>}
-        <div className={styles["actions"]}>
-          <Button
-            type="button"
-            onClick={prevButtonHandler}
-            className={prevButtonDisabled ? styles["disabled"] : ""}
-          >
-            이전 글
-          </Button>
-          <Button
-            type="button"
-            onClick={nextButtonHandler}
-            className={nextButtonDisabled ? styles["disabled"] : ""}
-          >
-            다음 글
-          </Button>
-          <Button type="button" onClick={props.onClose}>
-            닫기
-          </Button>
-        </div>
+        <footer>
+          <span>{`${currentPostIndex + 1} / ${
+            props.posts.length
+          }개의 글`}</span>
+          <div className={styles["actions"]}>
+            <Button
+              type="button"
+              onClick={prevButtonHandler}
+              className={prevButtonDisabled ? styles["disabled"] : ""}
+            >
+              이전 글
+            </Button>
+            <Button
+              type="button"
+              onClick={nextButtonHandler}
+              className={nextButtonDisabled ? styles["disabled"] : ""}
+            >
+              다음 글
+            </Button>
+            <Button type="button" onClick={props.onClose}>
+              닫기
+            </Button>
+          </div>
+        </footer>
       </Card>
     </>
   );

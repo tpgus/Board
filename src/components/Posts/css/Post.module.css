@@ -50,6 +50,13 @@
   padding: 2rem 0;
 }
 
+footer {
+  text-align: center;
+}
+
+footer span {
+  color: rgb(139, 139, 139);
+}
 .actions {
   text-align: end;
   color: white;
