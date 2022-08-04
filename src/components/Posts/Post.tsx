@@ -9,6 +9,7 @@ import CommentList from "../Comment/CommentList";
 interface PropsType {
   post: PostType;
   posts: PostType[];
+  onChangePage: (page: number) => void;
   onClose: () => void;
 }
 
@@ -31,6 +32,19 @@ function Post(props: PropsType) {
         setIsLoading(false);
       });
   }, [currentPost.id]);
+
+  useEffect(() => {
+    let currentIndex = props.posts.findIndex(
+      (post) => post.id === currentPost.id
+    );
+    if (currentIndex === 0) {
+      setPrevButtonDisabled(true);
+    }
+    if (currentIndex === props.posts.length - 1) {
+      setNextButtonDisabled(true);
+    }
+    setCurrentPostIndex(currentIndex);
+  }, [props.posts, currentPost.id]);
 
   function prevButtonHandler() {
     if (currentPostIndex === 0) {

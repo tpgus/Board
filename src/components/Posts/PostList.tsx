@@ -65,7 +65,12 @@ function PostList(props: PropsType) {
     <>
       {modalMessage && <AlertModal onClose={closeModal} {...modalMessage} />}
       {clickedPost && (
-        <Post onClose={closePost} post={clickedPost} posts={props.posts} />
+        <Post
+          onClose={closePost}
+          post={clickedPost}
+          posts={props.posts}
+          onChangePage={setPage}
+        />
       )}
       <Card className={styles["posts"]}>
         <div className={styles["label"]}>
