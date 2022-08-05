@@ -24,7 +24,8 @@
 <summary>게시판 메인 화면</summary>
 <div markdown="1">
 
-![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/43470398/182897609-43974897-b36c-4dc2-81a3-a9ba15be8e6a.gif)
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/43470398/182990948-07d119da-ccce-463e-8f57-902da7a4d9d7.gif)
+
 </div>
 </details>
 
