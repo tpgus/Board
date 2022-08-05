@@ -1,17 +1,20 @@
 <details>
 <summary>과제에 대한 소개</summary>
 <div markdown="1">
+
+  ---
   
  - 게시물 리스트와 게시물 상세 정보를 확인할 수 있는 게시판 형태의 웹 서비스입니다.<br>
  - 데이터는 무료 목업 API인 JSON Placeholder을 활용했습니다.<br>
  - 많은 기능을 가진 프로젝트 보다는 에러가 없는 프로젝트를 구현하고자 했습니다.<br>
  - TypeScript로 구현하였습니다.<br>
  - 컴포넌트 구조
-  
   ![스크린샷, 2022-08-05 13-03-54](https://user-images.githubusercontent.com/43470398/182999279-af5ac1cc-a592-469b-90bb-43bb41c0fd54.png)
   
 </div>
 </details>
+
+---
 
 <details>
 <summary>구현 화면 GIF 및 배포 링크</summary>
@@ -56,7 +59,6 @@
 
 ![ezgif com-gif-maker (5)](https://user-images.githubusercontent.com/43470398/182912263-15a01a84-c790-4f7a-a650-50f986766d9a.gif)
 
-
 </div>
 </details>
 
@@ -65,6 +67,8 @@
 
 </div>
 </details>
+
+---
 
 <details>
 <summary>프로젝트 실행 방법</summary>
@@ -75,6 +79,7 @@
 </div>
 </details>
 
+---
 
 <details>
 <summary>사용한 스택 목록</summary>
@@ -88,6 +93,8 @@
 </div>
 </details>
 
+---
+
 <details>
 <summary>구현한 기능 목록 (Software Requirement Specification)</summary>
 <div markdown="1">
@@ -99,6 +106,7 @@
 </div>
 </details>
 
+---
 
 <details>
 <summary>추가 구현 사항 및 구현 방법</summary>
@@ -112,6 +120,8 @@
   
  </div>
 </details>
+
+---
 
 <details>
 <summary>구현 방법 혹은 구현하면서 어려웠던 점</summary>
@@ -145,6 +155,8 @@
  </div>
 </details>
 
+---
+
 <details>
 <summary>와이어프레임</summary>
 <div markdown="1">
@@ -155,6 +167,8 @@
 
  </div>
 </details>
+
+---
 
 <details>
 <summary>성능 최적화에 대해서 고민하고 개선한 방법</summary>
