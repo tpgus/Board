@@ -6,6 +6,9 @@
  - 데이터는 무료 목업 API인 JSON Placeholder을 활용했습니다.<br>
  - 많은 기능을 가진 프로젝트 보다는 에러가 없는 프로젝트를 구현하고자 했습니다.<br>
  - TypeScript로 구현하였습니다.<br>
+ - 컴포넌트 구조
+  
+  ![스크린샷, 2022-08-05 13-03-54](https://user-images.githubusercontent.com/43470398/182999279-af5ac1cc-a592-469b-90bb-43bb41c0fd54.png)
   
 </div>
 </details>
@@ -78,7 +81,7 @@
 <div markdown="1">
   
   - React
-  - Typescript
+  - Typecript
   - CSS module
   
   
