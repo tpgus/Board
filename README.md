@@ -143,8 +143,12 @@
 </details>
 
 <details>
-<summary>직접 작성한 Wireframe 혹은 Prototype</summary>
+<summary>와이어프레임</summary>
 <div markdown="1">
+
+![스크린샷, 2022-08-05 12-39-11](https://user-images.githubusercontent.com/43470398/182996666-b89f00c1-7930-4a58-80cc-e34c5c528e0a.png)
+
+![스크린샷, 2022-08-05 12-39-41](https://user-images.githubusercontent.com/43470398/182996760-abd711da-2f89-4762-b49e-31fa9bdd5639.png)
 
  </div>
 </details>
