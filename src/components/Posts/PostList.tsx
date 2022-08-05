@@ -23,11 +23,11 @@ function PostList(props: PropsType) {
     setCurrentPage(1);
   }, [props.posts]);
 
-  const offset = (currentPage - 1) * postsPerPage;
-
   function clickPost(post: PostType) {
     setClickedPost({ ...post });
   }
+
+  const offset = (currentPage - 1) * postsPerPage;
 
   const posts = props.posts
     .slice(offset, offset + postsPerPage)
@@ -35,7 +35,7 @@ function PostList(props: PropsType) {
       <PostListItem key={post.id} post={post} onClick={clickPost} />
     ));
 
-  function setPage(pageNumber: number) {
+  function pageChangeHandler(pageNumber: number) {
     if (pageNumber === 0) {
       setModalMessage({
         title: "페이지를 이동할 수 없습니다.",
@@ -65,33 +65,33 @@ function PostList(props: PropsType) {
     <>
       {modalMessage && <AlertModal onClose={closeModal} {...modalMessage} />}
       {clickedPost && (
-        <Post
-          onClose={closePost}
-          post={clickedPost}
-          posts={props.posts}
-          onChangePage={setPage}
-        />
+        <Post onClose={closePost} post={clickedPost} posts={props.posts} />
       )}
       <Card className={styles["posts"]}>
+        <span>
+          총
+          <span
+            className={styles["posts-count"]}
+          >{` ${props.posts.length}`}</span>
+          개의 글이 있습니다.
+        </span>
         <div className={styles["label"]}>
           <span>번호</span>
           <span>제목</span>
           <span>글쓴이</span>
         </div>
-
-        {posts.length > 0 ? (
+        {posts.length > 0 && (
           <>
-            <ul>{posts}</ul>
+            {posts}
             <Pagination
               postsLength={props.posts.length}
               postsPerPage={postsPerPage}
               currentPage={currentPage}
-              onClickPage={setPage}
+              onClickPage={pageChangeHandler}
             />
           </>
-        ) : (
-          <p>글이 존재하지 않습니다.</p>
         )}
+        {posts.length === 0 && <p>글이 존재하지 않습니다.</p>}
       </Card>
     </>
   );

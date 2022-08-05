@@ -9,7 +9,6 @@ import CommentList from "../Comment/CommentList";
 interface PropsType {
   post: PostType;
   posts: PostType[];
-  onChangePage: (page: number) => void;
   onClose: () => void;
 }
 

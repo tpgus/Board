@@ -6,14 +6,13 @@ import "./App.css";
 import axios from "axios";
 
 function App() {
-  const [initialPosts, setInitialPosts] = useState<PostType[]>([]); // 초기 데이터 목록이자, 검색을 위한 기준 데이터
+  const [initialPosts, setInitialPosts] = useState<PostType[]>([]); // 원본 게시물 100개에 대한 데이터 목록이자, 검색을 위한 기준 데이터
   const [filteredPosts, setFilteredPosts] = useState<PostType[]>([]); // 검색 후 필터링된 데이터
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
     axios.get("https://jsonplaceholder.typicode.com/posts").then((res) => {
-      console.log(res.data);
       setInitialPosts(res.data);
       setFilteredPosts(res.data);
       setIsLoading(false);

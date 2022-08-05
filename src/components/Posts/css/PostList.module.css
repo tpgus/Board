@@ -17,3 +17,10 @@
   padding: 2rem;
   text-align: center;
 }
+
+.posts > span {
+  margin-left: 0.5rem;
+}
+.posts-count {
+  font-weight: bold;
+}

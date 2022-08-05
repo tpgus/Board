@@ -8,7 +8,8 @@
 }
 
 .comment-count {
-  text-decoration: underline;
+  font-weight: bold;
+  margin-left: 2px;
 }
 
 .comment {
@@ -19,17 +20,27 @@
   border: 1px solid rgb(199, 199, 199);
   border-radius: 12px;
 }
+.comment-icon {
+  transform: scaleX(-1);
+}
 
 .comment-profile {
   border-radius: 50%;
   width: 7%;
 }
 
-.comment-body {
+.comment-content {
   padding: 0 2rem;
 }
 
-.comment-body p {
+.comment-content > p {
   border-top: 2px solid rgb(192, 192, 192);
   font-size: 0.8rem;
+}
+
+.comment-content > div {
+  font-size: 0.8em;
+  padding-top: 0.5rem;
+  display: flex;
+  justify-content: end;
 }

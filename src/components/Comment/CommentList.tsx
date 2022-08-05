@@ -1,7 +1,6 @@
 import { CommentType } from "../DataType";
 import styles from "./css/CommentList.module.css";
-import { BsArrowReturnRight } from "react-icons/bs";
-
+import { FaRegCommentDots } from "react-icons/fa";
 interface PropsType {
   comments: CommentType[];
 }
@@ -9,9 +8,12 @@ interface PropsType {
 function Comments(props: PropsType) {
   return (
     <ul className={styles["comment-list"]}>
-      <p className={styles["comment-count"]}>
-        <BsArrowReturnRight />
-        {` ${props.comments.length}개`}의 댓글
+      <p>
+        <FaRegCommentDots className={styles["comment-icon"]} />
+
+        <span
+          className={styles["comment-count"]}
+        >{` Comments (${props.comments.length})`}</span>
       </p>
       {props.comments.map((comment) => (
         <li key={comment.id} className={styles["comment"]}>
@@ -20,9 +22,12 @@ function Comments(props: PropsType) {
             src="https://static.nid.naver.com/images/web/user/default.png?type=s40"
             alt="profile"
           />
-          <div className={styles["comment-body"]}>
+          <div className={styles["comment-content"]}>
             <h4>{comment.name}</h4>
             <p>{comment.body}</p>
+            <div>
+              <span>{comment.email}</span>
+            </div>
           </div>
         </li>
       ))}
