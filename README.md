@@ -65,6 +65,7 @@
 <summary>프로젝트 실행 방법</summary>
 <div markdown="1">
 
+`npm install` → `npm start`
   
 </div>
 </details>
@@ -139,7 +140,17 @@
  </div>
 </details>
 
-직접 작성한 Wireframe 혹은 Prototype (figma 등의 다양한 툴 활용)
+<details>
+<summary>직접 작성한 Wireframe 혹은 Prototype</summary>
+<div markdown="1">
 
-성능 최적화에 대해서 고민하고 개선한 방법
+ </div>
+</details>
+
+<details>
+<summary>성능 최적화에 대해서 고민하고 개선한 방법</summary>
+<div markdown="1">
+
+ </div>
+</details>
 
