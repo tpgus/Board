@@ -39,10 +39,11 @@
 
 
 <details>
-<summary>게시물 상세 및 댓글 보기</summary>
+<summary>게시물 상세 및 댓글 리스트</summary>
 <div markdown="1">
+  
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/43470398/182991414-3e00a622-4896-43d1-8988-bae2c340dbe0.gif)
 
-![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/43470398/182908916-bb664507-1227-4902-855c-e4404077f9fe.gif)
 </div>
 </details>
 
