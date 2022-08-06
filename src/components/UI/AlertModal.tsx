@@ -12,9 +12,6 @@ interface PropsType {
 
 function AlertModal(props: PropsType) {
   const portalElement = document.getElementById("overlay-root");
-  useEffect(() => {
-    console.log("asdasd");
-  }, []);
   return (
     <>
       {ReactDOM.createPortal(
