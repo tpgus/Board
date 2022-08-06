@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./css/Pagination.module.css";
 import Button from "../UI/Button";
 
@@ -55,4 +56,4 @@ function Pagination(props: PropsType) {
   );
 }
 
-export default Pagination;
+export default React.memo(Pagination);

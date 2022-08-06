@@ -13,6 +13,10 @@
   padding: 1rem;
 }
 
+/* ::-webkit-scrollbar {
+  display: none;
+} */
+
 .posts p {
   padding: 2rem;
   text-align: center;

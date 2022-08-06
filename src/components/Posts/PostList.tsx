@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import styles from "./css/PostList.module.css";
 import { PostType, ModalMessageType } from "../DataType";
 import PostListItem from "./PostListItem";
@@ -23,10 +23,10 @@ function PostList(props: PropsType) {
     setCurrentPage(1);
   }, [props.posts]);
 
-  function clickPost(post: PostType) {
+  const clickPost = useCallback(function (post: PostType) {
     document.body.style.overflow = "hidden";
     setClickedPost({ ...post });
-  }
+  }, []);
 
   const offset = (currentPage - 1) * postsPerPage;
 
@@ -36,26 +36,29 @@ function PostList(props: PropsType) {
       <PostListItem key={post.id} post={post} onClick={clickPost} />
     ));
 
-  function pageChangeHandler(pageNumber: number) {
-    if (pageNumber === 0) {
-      setModalMessage({
-        title: "페이지를 이동할 수 없습니다.",
-        message: "첫 페이지 입니다.",
-      });
-      return;
-    }
-    if (pageNumber === Math.ceil(props.posts.length / postsPerPage) + 1) {
-      setModalMessage({
-        title: "페이지를 이동할 수 없습니다.",
-        message: "마지막 페이지 입니다.",
-      });
-      return;
-    }
-    setCurrentPage(pageNumber);
-  }
+  const pageChangeHandler = useCallback(
+    function (pageNumber: number) {
+      if (pageNumber === 0) {
+        setModalMessage({
+          title: "페이지를 이동할 수 없습니다.",
+          message: "첫 페이지 입니다.",
+        });
+        return;
+      }
+      if (pageNumber === Math.ceil(props.posts.length / postsPerPage) + 1) {
+        setModalMessage({
+          title: "페이지를 이동할 수 없습니다.",
+          message: "마지막 페이지 입니다.",
+        });
+        return;
+      }
+      setCurrentPage(pageNumber);
+    },
+    [props.posts.length, postsPerPage]
+  );
 
   function closePost() {
-    document.body.style.overflow = "scroll";
+    document.body.style.overflow = "auto";
     setClickedPost(null);
     setModalMessage(null);
   }

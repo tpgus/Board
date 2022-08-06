@@ -1,6 +1,6 @@
 import styles from "./css/PostListItem.module.css";
 import { PostType } from "../DataType";
-
+import React from "react";
 /*
 아래와 같이 PropsType에서 바로 PostType으로 인터페이스를 확장하려고 하면
 interface PropsType extends PostType {
@@ -46,4 +46,4 @@ function PostListItem(props: PropsType) {
   );
 }
 
-export default PostListItem;
+export default React.memo(PostListItem);
