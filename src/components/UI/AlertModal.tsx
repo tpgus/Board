@@ -1,4 +1,5 @@
 import styles from "./css/AlertModal.module.css";
+import { useEffect } from "react";
 import ReactDOM from "react-dom";
 import Card from "./Card";
 import Button from "./Button";
@@ -11,6 +12,9 @@ interface PropsType {
 
 function AlertModal(props: PropsType) {
   const portalElement = document.getElementById("overlay-root");
+  useEffect(() => {
+    console.log("asdasd");
+  }, []);
   return (
     <>
       {ReactDOM.createPortal(

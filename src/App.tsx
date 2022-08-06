@@ -4,6 +4,8 @@ import Search from "./components/Search/Search";
 import { PostType } from "./components/DataType";
 import "./App.css";
 import axios from "axios";
+import { Routes, Route } from "react-router-dom";
+import Post from "./components/Posts/Post";
 
 function App() {
   const [initialPosts, setInitialPosts] = useState<PostType[]>([]); // 원본 게시물 100개에 대한 데이터 목록이자, 검색을 위한 기준 데이터

@@ -10,17 +10,17 @@
 
 .post-container {
   position: absolute;
-  width: 40vw;
-  height: 80vh;
+  width: 50vw;
+  height: 84vh;
   left: 50%;
   top: 50%;
-  margin-top: -40vh;
-  margin-left: -20vw;
+  margin-top: -42vh;
+  margin-left: -25vw;
   border: 1px solid #000;
   z-index: 100;
   padding: 3rem;
   overflow: auto;
-  /* overflow: overlay; */
+  overflow: overlay;
 }
 
 .content {
@@ -66,9 +66,9 @@ footer > span {
   font-size: 0.9rem;
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
+/* ::-webkit-scrollbar { */
+/* display: none; */
+/* } */
 
 .actions button {
   margin: 0.1rem;
