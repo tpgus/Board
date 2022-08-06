@@ -115,6 +115,8 @@
   - [페이지네이션 구현에 대한 설명](https://velog.io/@tpgus758/%EB%A6%AC%EC%95%A1%ED%8A%B8-%ED%8E%98%EC%9D%B4%EC%A7%80%EB%84%A4%EC%9D%B4%EC%85%98-%EA%B5%AC%ED%98%84)
 
 - [검색 기능 구현에 대한 설명](https://velog.io/@tpgus758/%EA%B2%80%EC%83%89-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84)
+
+- 모달 구현
   
  </div>
 </details>
