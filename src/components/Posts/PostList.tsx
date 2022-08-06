@@ -24,6 +24,7 @@ function PostList(props: PropsType) {
   }, [props.posts]);
 
   function clickPost(post: PostType) {
+    document.body.style.overflow = "hidden";
     setClickedPost({ ...post });
   }
 
@@ -54,16 +55,14 @@ function PostList(props: PropsType) {
   }
 
   function closePost() {
+    document.body.style.overflow = "scroll";
     setClickedPost(null);
-  }
-
-  function closeModal() {
     setModalMessage(null);
   }
 
   return (
     <>
-      {modalMessage && <AlertModal onClose={closeModal} {...modalMessage} />}
+      {modalMessage && <AlertModal onClose={closePost} {...modalMessage} />}
       {clickedPost && (
         <Post onClose={closePost} post={clickedPost} posts={props.posts} />
       )}

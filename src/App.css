@@ -1,7 +1,6 @@
 .App {
   text-align: center;
 }
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -13,10 +12,10 @@ ul {
 }
 
 .board {
-  padding: 10rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .message {

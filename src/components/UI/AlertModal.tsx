@@ -12,6 +12,14 @@ interface PropsType {
 
 function AlertModal(props: PropsType) {
   const portalElement = document.getElementById("overlay-root");
+
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "scroll";
+    };
+  }, []);
+
   return (
     <>
       {ReactDOM.createPortal(
