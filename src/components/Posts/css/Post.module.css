@@ -9,7 +9,7 @@
 }
 
 .post-container {
-  position: absolute;
+  position: fixed;
   width: 50vw;
   height: 84vh;
   left: 50%;

@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import styles from "./css/PostList.module.css";
 import { PostType, ModalMessageType } from "../DataType";
 import PostListItem from "./PostListItem";
@@ -30,11 +30,15 @@ function PostList(props: PropsType) {
 
   const offset = (currentPage - 1) * postsPerPage;
 
-  const posts = props.posts
-    .slice(offset, offset + postsPerPage)
-    .map((post) => (
-      <PostListItem key={post.id} post={post} onClick={clickPost} />
-    ));
+  const posts = useMemo(
+    () =>
+      props.posts
+        .slice(offset, offset + postsPerPage)
+        .map((post) => (
+          <PostListItem key={post.id} post={post} onClick={clickPost} />
+        )),
+    [props.posts, clickPost, offset, postsPerPage]
+  );
 
   const pageChangeHandler = useCallback(
     function (pageNumber: number) {
