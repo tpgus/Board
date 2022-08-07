@@ -127,7 +127,7 @@
 <summary>성능 최적화에 대해서 고민하고 개선한 방법</summary>
 <div markdown="1">
 
-[React.memo와 useCallback을 사용하여 불필요한 렌더링 방지하기](https://velog.io/@tpgus758/%EC%B5%9C%EC%A0%81%ED%99%94)
+- [React.memo와 useCallback을 사용하여 불필요한 렌더링 방지하기](https://velog.io/@tpgus758/%EC%B5%9C%EC%A0%81%ED%99%94)
 
  </div>
 </details>
