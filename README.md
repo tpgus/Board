@@ -86,7 +86,7 @@
 <div markdown="1">
   
   - React
-  - Typecript
+  - TypeScript
   - CSS module
   
   
