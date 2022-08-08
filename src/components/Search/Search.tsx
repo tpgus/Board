@@ -75,6 +75,7 @@ function Search(props: PropsType) {
 
   function closeModal() {
     setModalMessage(null);
+    inputRef.current!.focus();
   }
 
   return (
