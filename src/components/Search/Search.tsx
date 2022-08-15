@@ -12,20 +12,28 @@ interface PropsType {
   posts: PostType[];
 }
 
+type OptionType = "제목" | "내용" | "작성자";
+
 function Search(props: PropsType) {
   const [modalMessage, setModalMessage] = useState<ModalMessageType | null>(
     null
   );
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [searchValue, setSearchValue] = useState("");
-  const [searchOption, setSearchOption] = useState("제목");
+  const [searchOption, setSearchOption] = useState<OptionType>("제목");
 
   function selectOptionHandler(event: React.ChangeEvent<HTMLSelectElement>) {
-    setSearchOption(event.target.value);
-    setSearchValue("");
+    if (
+      event.target.value === "제목" ||
+      event.target.value === "내용" ||
+      event.target.value === "작성자"
+    ) {
+      setSearchOption(event.target.value);
+      setSearchValue("");
+    }
   }
 
-  function getResultOfSearch(option: string, value: string) {
+  function getResultOfSearch(option: OptionType, value: string) {
     let result = props.posts;
     //정규식 사용하기
     const searchValue = new RegExp(`${value}`, "i");
