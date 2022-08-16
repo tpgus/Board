@@ -18,7 +18,7 @@ function Search(props: PropsType) {
   const [modalMessage, setModalMessage] = useState<ModalMessageType | null>(
     null
   );
-  const inputRef = useRef<HTMLInputElement | null>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const [searchValue, setSearchValue] = useState("");
   const [searchOption, setSearchOption] = useState<OptionType>("제목");
 
