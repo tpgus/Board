@@ -2,9 +2,7 @@
 <summary>과제 요구 사항</summary>
 <div markdown="1">
 
-<li><a href="https://handsomely-beet-265.notion.site/5fd4efa21fad49dbaecd04c3f32b566c" target="_blank">요구사항</a><li>
-
-[요구 사항](https://handsomely-beet-265.notion.site/5fd4efa21fad49dbaecd04c3f32b566c)
+[요구 사항](https://handsomely-beet-265.notion.site/5fd4efa21fad49dbaecd04c3f32b566c){:target="_blank"}
 
 </div>
 </details>
