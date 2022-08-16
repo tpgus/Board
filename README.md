@@ -6,6 +6,8 @@
   
 [요구 사항](https://handsomely-beet-265.notion.site/5fd4efa21fad49dbaecd04c3f32b566c/){: target="_blank" }
 
+"https://handsomely-beet-265.notion.site/5fd4efa21fad49dbaecd04c3f32b566c"
+  
 </div>
 </details>
 
