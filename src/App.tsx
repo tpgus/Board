@@ -22,7 +22,6 @@ function App() {
   function setPosts(posts: PostType[]) {
     setFilteredPosts(posts);
   }
-
   return (
     <main className="board">
       <Search posts={initialPosts} onSearch={setPosts} />
