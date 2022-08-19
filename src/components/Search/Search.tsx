@@ -1,26 +1,25 @@
 import styles from "./css/Search.module.css";
 import React, { useState, useRef } from "react";
-import { PostType, ModalMessageType } from "../DataType";
+import { ModalMessageType } from "../DataType";
 import AlertModal from "../UI/AlertModal";
 import Button from "../UI/Button";
 import Card from "../UI/Card";
 import SearchInfo from "./SearchInfo";
 import Options from "./Options";
-
-interface PropsType {
-  onSearch: (posts: PostType[]) => void;
-  posts: PostType[];
-}
+import { useAppSelector, useAppDispatch } from "../../hooks/redux-hooks";
+import { postActions } from "../../store/post-slice";
 
 type OptionType = "제목" | "내용" | "작성자";
 
-function Search(props: PropsType) {
+function Search() {
   const [modalMessage, setModalMessage] = useState<ModalMessageType | null>(
     null
   );
   const inputRef = useRef<HTMLInputElement>(null);
   const [searchValue, setSearchValue] = useState("");
   const [searchOption, setSearchOption] = useState<OptionType>("제목");
+  const dispatch = useAppDispatch();
+  const post = useAppSelector((state) => state.post);
 
   function selectOptionHandler(event: React.ChangeEvent<HTMLSelectElement>) {
     if (
@@ -34,20 +33,24 @@ function Search(props: PropsType) {
   }
 
   function getResultOfSearch(option: OptionType, value: string) {
-    let result = props.posts;
+    let result = post.initialPosts;
     //정규식 사용하기
     const searchValue = new RegExp(`${value}`, "i");
     switch (option) {
       case "제목":
-        result = props.posts.filter((post) => searchValue.test(post.title));
+        result = post.initialPosts.filter((post) =>
+          searchValue.test(post.title)
+        );
         break;
 
       case "내용":
-        result = props.posts.filter((post) => searchValue.test(post.body));
+        result = post.initialPosts.filter((post) =>
+          searchValue.test(post.body)
+        );
         break;
 
       case "작성자":
-        result = props.posts.filter((post) =>
+        result = post.initialPosts.filter((post) =>
           searchValue.test("작성자 " + post.userId)
         );
         break;
@@ -72,13 +75,13 @@ function Search(props: PropsType) {
       searchOption,
       inputRef.current!.value
     );
-    props.onSearch(resultOfSearch);
+    dispatch(postActions.search(resultOfSearch));
     inputRef.current!.value = "";
   }
 
   function resetHandler() {
     setSearchValue("");
-    props.onSearch(props.posts.slice());
+    dispatch(postActions.search(post.initialPosts));
   }
 
   function closeModal() {

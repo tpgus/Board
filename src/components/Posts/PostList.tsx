@@ -6,22 +6,20 @@ import AlertModal from "../UI/AlertModal";
 import Card from "../UI/Card";
 import Post from "./Post";
 import Pagination from "./Pagination";
+import { useAppSelector } from "../../hooks/redux-hooks";
 
-interface PropsType {
-  posts: PostType[];
-}
-
-function PostList(props: PropsType) {
+function PostList() {
   const [postsPerPage, setPostsPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
   const [modalMessage, setModalMessage] = useState<ModalMessageType | null>(
     null
   );
   const [clickedPost, setClickedPost] = useState<PostType | null>(null);
+  const { filteredPosts: postList } = useAppSelector((state) => state.post);
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [props.posts]);
+  }, [postList]);
 
   const clickPost = useCallback(function (post: PostType) {
     document.body.style.overflow = "hidden";
@@ -32,12 +30,12 @@ function PostList(props: PropsType) {
 
   const posts = useMemo(
     () =>
-      props.posts
+      postList
         .slice(offset, offset + postsPerPage)
         .map((post) => (
           <PostListItem key={post.id} post={post} onClick={clickPost} />
         )),
-    [props.posts, clickPost, offset, postsPerPage]
+    [postList, clickPost, offset, postsPerPage]
   );
 
   const pageChangeHandler = useCallback(
@@ -49,7 +47,7 @@ function PostList(props: PropsType) {
         });
         return;
       }
-      if (pageNumber === Math.ceil(props.posts.length / postsPerPage) + 1) {
+      if (pageNumber === Math.ceil(postList.length / postsPerPage) + 1) {
         setModalMessage({
           title: "페이지를 이동할 수 없습니다.",
           message: "마지막 페이지 입니다.",
@@ -58,7 +56,7 @@ function PostList(props: PropsType) {
       }
       setCurrentPage(pageNumber);
     },
-    [props.posts.length, postsPerPage]
+    [postList.length, postsPerPage]
   );
 
   function closePost() {
@@ -70,15 +68,11 @@ function PostList(props: PropsType) {
   return (
     <>
       {modalMessage && <AlertModal onClose={closePost} {...modalMessage} />}
-      {clickedPost && (
-        <Post onClose={closePost} post={clickedPost} posts={props.posts} />
-      )}
+      {clickedPost && <Post onClose={closePost} post={clickedPost} />}
       <Card className={styles["posts"]}>
         <span>
           총
-          <span
-            className={styles["posts-count"]}
-          >{` ${props.posts.length}`}</span>
+          <span className={styles["posts-count"]}>{` ${postList.length}`}</span>
           개의 글이 있습니다.
         </span>
         <div className={styles["label"]}>
@@ -90,7 +84,7 @@ function PostList(props: PropsType) {
           <>
             {posts}
             <Pagination
-              postsLength={props.posts.length}
+              postsLength={postList.length}
               postsPerPage={postsPerPage}
               currentPage={currentPage}
               onClickPage={pageChangeHandler}

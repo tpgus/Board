@@ -1,32 +1,25 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import PostList from "./components/Posts/PostList";
 import Search from "./components/Search/Search";
 import { PostType } from "./components/DataType";
+import { useAppDispatch, useAppSelector } from "./hooks/redux-hooks";
+import { getPost, postActions } from "./store/post-slice";
 import "./App.css";
-import axios from "axios";
 
 function App() {
-  const [initialPosts, setInitialPosts] = useState<PostType[]>([]); // 원본 게시물 100개에 대한 데이터 목록이자, 검색을 위한 기준 데이터
-  const [filteredPosts, setFilteredPosts] = useState<PostType[]>([]); // 검색 후 필터링된 데이터
-  const [isLoading, setIsLoading] = useState(false);
+  const post = useAppSelector((state) => state.post);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    setIsLoading(true);
-    axios.get("https://jsonplaceholder.typicode.com/posts").then((res) => {
-      setInitialPosts(res.data);
-      setFilteredPosts(res.data);
-      setIsLoading(false);
-    });
-  }, []);
+    dispatch(getPost());
+  }, [dispatch]);
 
-  function setPosts(posts: PostType[]) {
-    setFilteredPosts(posts);
-  }
   return (
     <main className="board">
-      <Search posts={initialPosts} onSearch={setPosts} />
-      {!isLoading && <PostList posts={filteredPosts} />}
-      {isLoading && <p className="message">로딩 중...</p>}
+      <Search />
+      {post.status === "complete" && <PostList />}
+      {post.status === "loading" && <p className="message">로딩 중...</p>}
+      {post.status === "fail" && <p>데이터를 불러오지 못했습니다.</p>}
     </main>
   );
 }

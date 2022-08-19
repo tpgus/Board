@@ -5,10 +5,10 @@ import Button from "../UI/Button";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import CommentList from "../Comment/CommentList";
+import { useAppSelector } from "../../hooks/redux-hooks";
 
 interface PropsType {
   post: PostType;
-  posts: PostType[];
   onClose: () => void;
 }
 
@@ -19,6 +19,7 @@ function Post(props: PropsType) {
   const [isLoading, setIsLoading] = useState(false);
   const [prevButtonDisabled, setPrevButtonDisabled] = useState(false);
   const [nextButtonDisabled, setNextButtonDisabled] = useState(false);
+  const { filteredPosts: posts } = useAppSelector((state) => state.post);
 
   useEffect(() => {
     setIsLoading(true);
@@ -33,17 +34,15 @@ function Post(props: PropsType) {
   }, [currentPost.id]);
 
   useEffect(() => {
-    let currentIndex = props.posts.findIndex(
-      (post) => post.id === currentPost.id
-    );
+    let currentIndex = posts.findIndex((post) => post.id === currentPost.id);
     if (currentIndex === 0) {
       setPrevButtonDisabled(true);
     }
-    if (currentIndex === props.posts.length - 1) {
+    if (currentIndex === posts.length - 1) {
       setNextButtonDisabled(true);
     }
     setCurrentPostIndex(currentIndex);
-  }, [props.posts, currentPost.id]);
+  }, [posts, currentPost.id]);
 
   function prevButtonHandler() {
     if (currentPostIndex === 0) {
@@ -51,18 +50,18 @@ function Post(props: PropsType) {
       return;
     }
 
-    let newCurrentPost = props.posts[currentPostIndex - 1];
+    let newCurrentPost = posts[currentPostIndex - 1];
     setCurrentPost(newCurrentPost);
     setCurrentPostIndex((currentIndex) => currentIndex - 1);
     setNextButtonDisabled(false);
   }
 
   function nextButtonHandler() {
-    if (currentPostIndex === props.posts.length - 1) {
+    if (currentPostIndex === posts.length - 1) {
       setNextButtonDisabled(true);
       return;
     }
-    let newCurrentPost = props.posts[currentPostIndex + 1];
+    let newCurrentPost = posts[currentPostIndex + 1];
     setCurrentPost(newCurrentPost);
     setCurrentPostIndex((currentIndex) => currentIndex + 1);
     setPrevButtonDisabled(false);
@@ -84,9 +83,7 @@ function Post(props: PropsType) {
         {!isLoading && <CommentList comments={comments} />}
         {isLoading && <p>댓글을 불러오는 중입니다...</p>}
         <footer>
-          <span>{`${currentPostIndex + 1} / ${
-            props.posts.length
-          }개의 글`}</span>
+          <span>{`${currentPostIndex + 1} / ${posts.length}개의 글`}</span>
           <div className={styles["actions"]}>
             <Button
               type="button"
