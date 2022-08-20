@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { PostType } from "../components/DataType";
-
 type StatusType = "loading" | "complete" | "fail";
 
 interface InitialType {
@@ -15,11 +14,13 @@ const initialState: InitialType = {
   filteredPosts: [],
 };
 
-export const getPost = createAsyncThunk("postSlice/getPost", async () => {
+export const getPost = createAsyncThunk(`postSlice/getPost`, async () => {
   const response = await fetch("https://jsonplaceholder.typicode.com/posts");
   const responseData = await response.json();
   return responseData;
 });
+// export const getPost = asyncThunk("postSlice/getPost");
+// export const postPost = asyncThunk("postSlice/postPost");
 
 const postSlice = createSlice({
   name: "post",

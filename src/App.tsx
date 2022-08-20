@@ -1,9 +1,8 @@
 import { useEffect } from "react";
 import PostList from "./components/Posts/PostList";
 import Search from "./components/Search/Search";
-import { PostType } from "./components/DataType";
 import { useAppDispatch, useAppSelector } from "./hooks/redux-hooks";
-import { getPost, postActions } from "./store/post-slice";
+import { getPost } from "./store/post-slice";
 import "./App.css";
 
 function App() {
