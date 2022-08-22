@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { PostType } from "../components/DataType";
+
 type StatusType = "loading" | "complete" | "fail";
 
 interface InitialType {
