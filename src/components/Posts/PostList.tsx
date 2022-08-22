@@ -4,9 +4,10 @@ import { PostType, ModalMessageType } from "../DataType";
 import PostListItem from "./PostListItem";
 import AlertModal from "../UI/AlertModal";
 import Card from "../UI/Card";
-import Post from "./Post";
+// import Post from "./Post";
 import Pagination from "./Pagination";
 import { useAppSelector } from "../../hooks/redux-hooks";
+import React, { Suspense } from "react";
 
 function PostList() {
   const [postsPerPage, setPostsPerPage] = useState(10);
@@ -16,6 +17,7 @@ function PostList() {
   );
   const [clickedPost, setClickedPost] = useState<PostType | null>(null);
   const { filteredPosts: postList } = useAppSelector((state) => state.post);
+  const Post = React.lazy(() => import("./Post"));
 
   useEffect(() => {
     setCurrentPage(1);
@@ -68,7 +70,11 @@ function PostList() {
   return (
     <>
       {modalMessage && <AlertModal onClose={closePost} {...modalMessage} />}
-      {clickedPost && <Post onClose={closePost} post={clickedPost} />}
+      {clickedPost && (
+        <Suspense fallback={<p>Loading...</p>}>
+          <Post onClose={closePost} post={clickedPost} />
+        </Suspense>
+      )}
       <Card className={styles["posts"]}>
         <span>
           총
