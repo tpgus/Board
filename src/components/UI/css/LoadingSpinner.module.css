@@ -1,8 +1,7 @@
 .spinner {
   border-radius: 50%;
   border: 7px dashed rgb(165, 165, 165);
-  animation: lotate;
-  animation-duration: 3s linear;
+  animation: lotate 2s linear;
   animation-iteration-count: infinite;
   width: 100px;
   height: 100px;
