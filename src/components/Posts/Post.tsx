@@ -81,30 +81,32 @@ function Post(props: PropsType) {
           </header>
           <p className={styles["content-body"]}>{currentPost.body}</p>
         </div>
-        {!isLoading && <CommentList comments={comments} />}
         {isLoading && <LoadingSpinner />}
-        <footer>
-          <span>{`${currentPostIndex + 1} / ${posts.length}개의 글`}</span>
-          <div className={styles["actions"]}>
-            <Button
-              type="button"
-              onClick={prevButtonHandler}
-              className={prevButtonDisabled ? styles["disabled"] : ""}
-            >
-              이전 글
-            </Button>
-            <Button
-              type="button"
-              onClick={nextButtonHandler}
-              className={nextButtonDisabled ? styles["disabled"] : ""}
-            >
-              다음 글
-            </Button>
-            <Button type="button" onClick={props.onClose}>
-              닫기
-            </Button>
-          </div>
-        </footer>
+        {!isLoading && <CommentList comments={comments} />}
+        {!isLoading && comments.length !== 0 && (
+          <footer>
+            <span>{`${currentPostIndex + 1} / ${posts.length}개의 글`}</span>
+            <div className={styles["actions"]}>
+              <Button
+                type="button"
+                onClick={prevButtonHandler}
+                className={prevButtonDisabled ? styles["disabled"] : ""}
+              >
+                이전 글
+              </Button>
+              <Button
+                type="button"
+                onClick={nextButtonHandler}
+                className={nextButtonDisabled ? styles["disabled"] : ""}
+              >
+                다음 글
+              </Button>
+              <Button type="button" onClick={props.onClose}>
+                닫기
+              </Button>
+            </div>
+          </footer>
+        )}
       </Card>
     </>
   );
