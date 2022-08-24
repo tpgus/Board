@@ -3,6 +3,7 @@ import PostList from "./components/Posts/PostList";
 import Search from "./components/Search/Search";
 import { useAppDispatch, useAppSelector } from "./hooks/redux-hooks";
 import { getPost } from "./store/post-slice";
+import LoadingSpinner from "./components/UI/LoadingSpinner";
 import "./App.css";
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
     <main className="board">
       <Search />
       {post.status === "complete" && <PostList />}
-      {post.status === "loading" && <p className="message">로딩 중...</p>}
+      {post.status === "loading" && <LoadingSpinner />}
       {post.status === "fail" && <p>데이터를 불러오지 못했습니다.</p>}
     </main>
   );

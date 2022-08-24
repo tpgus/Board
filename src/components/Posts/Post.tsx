@@ -4,6 +4,7 @@ import { PostType, CommentType } from "../DataType";
 import Button from "../UI/Button";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import LoadingSpinner from "../UI/LoadingSpinner";
 import CommentList from "../Comment/CommentList";
 import { useAppSelector } from "../../hooks/redux-hooks";
 
@@ -81,7 +82,7 @@ function Post(props: PropsType) {
           <p className={styles["content-body"]}>{currentPost.body}</p>
         </div>
         {!isLoading && <CommentList comments={comments} />}
-        {isLoading && <p>댓글을 불러오는 중입니다...</p>}
+        {isLoading && <LoadingSpinner />}
         <footer>
           <span>{`${currentPostIndex + 1} / ${posts.length}개의 글`}</span>
           <div className={styles["actions"]}>

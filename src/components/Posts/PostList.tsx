@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useMemo } from "react";
 import styles from "./css/PostList.module.css";
 import { PostType, ModalMessageType } from "../DataType";
 import PostListItem from "./PostListItem";
+import LoadingSpinner from "../UI/LoadingSpinner";
 import AlertModal from "../UI/AlertModal";
 import Card from "../UI/Card";
 // import Post from "./Post";
@@ -71,7 +72,7 @@ function PostList() {
     <>
       {modalMessage && <AlertModal onClose={closePost} {...modalMessage} />}
       {clickedPost && (
-        <Suspense fallback={<p>Loading...</p>}>
+        <Suspense fallback={<LoadingSpinner />}>
           <Post onClose={closePost} post={clickedPost} />
         </Suspense>
       )}
