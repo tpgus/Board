@@ -1,9 +1,10 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { PostType } from "../components/DataType";
+import { setStorage } from "../utils/storageUtil";
 
-type StatusType = "loading" | "complete" | "fail";
+type StatusType = "loading" | "complete" | "fail" | "updated";
 
-interface InitialType {
+export interface InitialType {
   initialPosts: PostType[];
   filteredPosts: PostType[];
   status: StatusType;
@@ -20,6 +21,7 @@ export const getPost = createAsyncThunk(`postSlice/getPost`, async () => {
   const responseData = await response.json();
   return responseData;
 });
+
 // export const getPost = asyncThunk("postSlice/getPost");
 // export const postPost = asyncThunk("postSlice/postPost");
 
@@ -27,8 +29,14 @@ const postSlice = createSlice({
   name: "post",
   initialState,
   reducers: {
-    search(state, action) {
+    search(state, action: PayloadAction<PostType[]>) {
       state.filteredPosts = action.payload;
+    },
+
+    setPost(state, action: PayloadAction<InitialType>) {
+      state.status = action.payload.status;
+      state.filteredPosts = action.payload.filteredPosts;
+      state.initialPosts = action.payload.initialPosts;
     },
   },
   extraReducers: (builder) => {
@@ -39,6 +47,7 @@ const postSlice = createSlice({
       state.status = "complete";
       state.initialPosts = action.payload;
       state.filteredPosts = action.payload;
+      setStorage("post", state);
     });
     builder.addCase(getPost.rejected, (state) => {
       state.status = "fail";

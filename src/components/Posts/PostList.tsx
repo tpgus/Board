@@ -19,7 +19,6 @@ function PostList() {
   const [clickedPost, setClickedPost] = useState<PostType | null>(null);
   const { filteredPosts: postList } = useAppSelector((state) => state.post);
   const Post = React.lazy(() => import("./Post"));
-
   useEffect(() => {
     setCurrentPage(1);
   }, [postList]);
