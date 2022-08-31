@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import PostList from "./components/Posts/PostList";
 import Search from "./components/Search/Search";
 import { useAppDispatch, useAppSelector } from "./hooks/redux-hooks";
@@ -13,7 +13,7 @@ function App() {
   const dispatch = useAppDispatch();
   useEffect(() => {
     const posts = getStorage("post");
-    if (Object.keys(posts).length === 0) {
+    if (!posts) {
       dispatch(getPost());
     } else {
       dispatch(postActions.setPost(posts));

@@ -7,5 +7,5 @@ export const getStorage = (key: string) => {
   if (jsonData) {
     return JSON.parse(jsonData);
   }
-  return {};
+  return null;
 };

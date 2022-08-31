@@ -1,4 +1,4 @@
-import { CommentType } from "../DataType";
+import { CommentType } from "../types";
 import styles from "./css/CommentList.module.css";
 import { FaRegCommentDots } from "react-icons/fa";
 interface PropsType {

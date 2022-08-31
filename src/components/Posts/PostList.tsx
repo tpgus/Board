@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import styles from "./css/PostList.module.css";
-import { PostType, ModalMessageType } from "../DataType";
+import { PostType, ModalMessageType } from "../types";
 import PostListItem from "./PostListItem";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import AlertModal from "../UI/AlertModal";
@@ -10,6 +10,8 @@ import Pagination from "./Pagination";
 import { useAppSelector } from "../../hooks/redux-hooks";
 import React, { Suspense } from "react";
 
+const Post = React.lazy(() => import("./Post"));
+
 function PostList() {
   const [postsPerPage, setPostsPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
@@ -18,7 +20,7 @@ function PostList() {
   );
   const [clickedPost, setClickedPost] = useState<PostType | null>(null);
   const { filteredPosts: postList } = useAppSelector((state) => state.post);
-  const Post = React.lazy(() => import("./Post"));
+
   useEffect(() => {
     setCurrentPage(1);
   }, [postList]);
@@ -71,7 +73,7 @@ function PostList() {
     <>
       {modalMessage && <AlertModal onClose={closePost} {...modalMessage} />}
       {clickedPost && (
-        <Suspense fallback={<LoadingSpinner />}>
+        <Suspense fallback={<></>}>
           <Post onClose={closePost} post={clickedPost} />
         </Suspense>
       )}

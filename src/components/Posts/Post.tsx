@@ -1,6 +1,6 @@
 import styles from "./css/Post.module.css";
 import Card from "../UI/Card";
-import { PostType, CommentType } from "../DataType";
+import { PostType, CommentType } from "../types";
 import Button from "../UI/Button";
 import { useState, useEffect } from "react";
 import axios from "axios";

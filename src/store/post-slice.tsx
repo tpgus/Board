@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import { PostType } from "../components/DataType";
+import { PostType } from "../components/types";
 import { setStorage } from "../utils/storageUtil";
 
-type StatusType = "loading" | "complete" | "fail" | "updated";
+type StatusType = "loading" | "complete" | "fail";
 
 export interface InitialType {
   initialPosts: PostType[];
