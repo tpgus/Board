@@ -7,14 +7,15 @@ import axios from "axios";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import CommentList from "../Comment/CommentList";
 import { useAppSelector } from "../../hooks/redux-hooks";
-
+import { useHttp } from "../../hooks/use-http";
+import { comments } from "../../apis/api/comment";
 interface PropsType {
   post: PostType;
   onClose: () => void;
 }
-
+type reqFunction = <T>(data?: T) => Promise<T>;
 function Post(props: PropsType) {
-  const [comments, setComments] = useState<CommentType[]>([]);
+  // const [comments, setComments] = useState<CommentType[]>([]);
   const [currentPost, setCurrentPost] = useState(props.post);
   const [currentPostIndex, setCurrentPostIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
@@ -22,17 +23,24 @@ function Post(props: PropsType) {
   const [nextButtonDisabled, setNextButtonDisabled] = useState(false);
   const { filteredPosts: posts } = useAppSelector((state) => state.post);
 
-  useEffect(() => {
-    setIsLoading(true);
-    axios
-      .get(
-        `https://jsonplaceholder.typicode.com/posts/${currentPost.id}/comments`
-      )
-      .then((res) => {
-        setComments(res.data);
-        setIsLoading(false);
-      });
-  }, [currentPost.id]);
+  const {
+    sendRequest: getComments,
+    data: commentsOfPost,
+    error,
+    status,
+  } = useHttp(comments.getCommentsOfPost);
+
+  // useEffect(() => {
+  //   setIsLoading(true);
+  //   axios
+  //     .get(
+  //       `https://jsonplaceholder.typicode.com/posts/${currentPost.id}/comments`
+  //     )
+  //     .then((res) => {
+  //       setComments(res.data);
+  //       setIsLoading(false);
+  //     });
+  // }, [currentPost.id]);
 
   useEffect(() => {
     let currentIndex = posts.findIndex((post) => post.id === currentPost.id);
@@ -81,7 +89,7 @@ function Post(props: PropsType) {
           </header>
           <p className={styles["content-body"]}>{currentPost.body}</p>
         </div>
-        {isLoading && <LoadingSpinner />}
+        {/* {isLoading && <LoadingSpinner />}
         {!isLoading && <CommentList comments={comments} />}
         {!isLoading && comments.length !== 0 && (
           <footer>
@@ -106,7 +114,7 @@ function Post(props: PropsType) {
               </Button>
             </div>
           </footer>
-        )}
+        )} */}
       </Card>
     </>
   );
