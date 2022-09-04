@@ -14,9 +14,4 @@ export const comments = {
     );
     return response.data;
   },
-
-  //post
-  //delete
-  //patch
-  //...
 };

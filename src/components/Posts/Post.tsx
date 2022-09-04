@@ -13,21 +13,19 @@ interface PropsType {
   post: PostType;
   onClose: () => void;
 }
-type reqFunction = <T>(data?: T) => Promise<T>;
 function Post(props: PropsType) {
   // const [comments, setComments] = useState<CommentType[]>([]);
   const [currentPost, setCurrentPost] = useState(props.post);
   const [currentPostIndex, setCurrentPostIndex] = useState(0);
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
   const [prevButtonDisabled, setPrevButtonDisabled] = useState(false);
   const [nextButtonDisabled, setNextButtonDisabled] = useState(false);
   const { filteredPosts: posts } = useAppSelector((state) => state.post);
 
   const {
-    sendRequest: getComments,
     data: commentsOfPost,
     error,
-    status,
+    isLoading,
   } = useHttp(comments.getCommentsOfPost);
 
   // useEffect(() => {
