@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { PostType } from "../components/types";
 import { setStorage } from "../utils/storageUtil";
 
-type StatusType = "loading" | "complete" | "fail";
+type StatusType = "pending" | "completed" | "fail";
 
 export interface InitialType {
   initialPosts: PostType[];
@@ -41,10 +41,10 @@ const postSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(getPost.pending, (state) => {
-      state.status = "loading";
+      state.status = "pending";
     });
     builder.addCase(getPost.fulfilled, (state, action) => {
-      state.status = "complete";
+      state.status = "completed";
       state.initialPosts = action.payload;
       state.filteredPosts = action.payload;
       setStorage("post", state);
