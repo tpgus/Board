@@ -1,6 +1,5 @@
 import { axiosAPI } from "../config";
 import { setStorage } from "../../utils/storageUtil";
-import { AxiosResponse } from "axios";
 
 interface Post {
   id: string;
@@ -9,7 +8,7 @@ interface Post {
   title: string;
 }
 
-export const posts = {
+export const postAPI = {
   getAllPosts: async () => {
     const response = await axiosAPI.get<Post[]>(`/posts`);
     setStorage("post", {
@@ -19,9 +18,9 @@ export const posts = {
     });
     return response.data;
   },
-  //...post
-  //...delete
 };
+//...post
+//...delete
 
 /*-----------------------*/
 //독립적으로 쓸 때,

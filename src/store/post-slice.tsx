@@ -7,11 +7,11 @@ type StatusType = "pending" | "completed" | "fail";
 export interface InitialType {
   initialPosts: PostType[];
   filteredPosts: PostType[];
-  status: StatusType;
+  // status: StatusType;
 }
 
 const initialState: InitialType = {
-  status: "" as StatusType,
+  // status: "" as StatusType,
   initialPosts: [],
   filteredPosts: [],
 };
@@ -22,9 +22,6 @@ export const getPost = createAsyncThunk(`postSlice/getPost`, async () => {
   return responseData;
 });
 
-// export const getPost = asyncThunk("postSlice/getPost");
-// export const postPost = asyncThunk("postSlice/postPost");
-
 const postSlice = createSlice({
   name: "post",
   initialState,
@@ -34,25 +31,25 @@ const postSlice = createSlice({
     },
 
     setPost(state, action: PayloadAction<InitialType>) {
-      state.status = action.payload.status;
+      // state.status = action.payload.status;
       state.filteredPosts = action.payload.filteredPosts;
       state.initialPosts = action.payload.initialPosts;
     },
   },
-  extraReducers: (builder) => {
-    builder.addCase(getPost.pending, (state) => {
-      state.status = "pending";
-    });
-    builder.addCase(getPost.fulfilled, (state, action) => {
-      state.status = "completed";
-      state.initialPosts = action.payload;
-      state.filteredPosts = action.payload;
-      setStorage("post", state);
-    });
-    builder.addCase(getPost.rejected, (state) => {
-      state.status = "fail";
-    });
-  },
+  // extraReducers: (builder) => {
+  //   builder.addCase(getPost.pending, (state) => {
+  //     state.status = "pending";
+  //   });
+  //   builder.addCase(getPost.fulfilled, (state, action) => {
+  //     state.status = "completed";
+  //     state.initialPosts = action.payload;
+  //     state.filteredPosts = action.payload;
+  //     setStorage("post", state);
+  //   });
+  //   builder.addCase(getPost.rejected, (state) => {
+  //     state.status = "fail";
+  //   });
+  // },
 });
 
 export const postActions = postSlice.actions;
