@@ -1,11 +1,8 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import styles from "./css/PostList.module.css";
-import { PostType, ModalMessageType } from "../types";
 import PostListItem from "./PostListItem";
-import LoadingSpinner from "../UI/LoadingSpinner";
 import AlertModal from "../UI/AlertModal";
 import Card from "../UI/Card";
-// import Post from "./Post";
 import Pagination from "./Pagination";
 import { useAppSelector } from "../../hooks/redux-hooks";
 import React, { Suspense } from "react";

@@ -1,16 +1,9 @@
 import { axiosAPI } from "../config";
 import { setStorage } from "../../utils/storageUtil";
 
-interface Post {
-  id: string;
-  userId: string;
-  body: string;
-  title: string;
-}
-
 export const postAPI = {
   getAllPosts: async () => {
-    const response = await axiosAPI.get<Post[]>(`/posts`);
+    const response = await axiosAPI.get<PostType[]>(`/posts`);
     setStorage("post", {
       initialPosts: response.data,
       filteredPosts: response.data,
@@ -19,8 +12,6 @@ export const postAPI = {
     return response.data;
   },
 };
-//...post
-//...delete
 
 /*-----------------------*/
 //독립적으로 쓸 때,

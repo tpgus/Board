@@ -1,11 +1,11 @@
-import { CommentType } from "../types";
 import styles from "./css/CommentList.module.css";
 import { FaRegCommentDots } from "react-icons/fa";
+
 interface PropsType {
   comments: CommentType[];
 }
 
-function Comments(props: PropsType) {
+function Comments({ comments }: PropsType) {
   return (
     <ul className={styles["comment-list"]}>
       <p>
@@ -13,9 +13,9 @@ function Comments(props: PropsType) {
 
         <span
           className={styles["comment-count"]}
-        >{` Comments (${props.comments.length})`}</span>
+        >{` Comments (${comments.length})`}</span>
       </p>
-      {props.comments.map((comment) => (
+      {comments.map((comment) => (
         <li key={comment.id} className={styles["comment"]}>
           <img
             className={styles["comment-profile"]}

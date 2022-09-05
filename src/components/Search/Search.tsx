@@ -1,6 +1,5 @@
 import styles from "./css/Search.module.css";
 import React, { useState, useRef } from "react";
-import { ModalMessageType } from "../types";
 import AlertModal from "../UI/AlertModal";
 import Button from "../UI/Button";
 import Card from "../UI/Card";

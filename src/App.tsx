@@ -8,7 +8,6 @@ import { postActions } from "./store/post-slice";
 import { useHttp } from "./hooks/use-http";
 import { postAPI } from "./apis/api/post";
 import "./App.css";
-import { PostType } from "./components/types";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -40,7 +39,7 @@ function App() {
   return (
     <main className="board">
       <Search />
-      {!isLoading && error && <p>데이터를 불러오지 못했습니다.</p>}
+      {!isLoading && error && <p>{error}</p>}
       {!isLoading && !error && <PostList />}
       {isLoading && <LoadingSpinner />}
     </main>

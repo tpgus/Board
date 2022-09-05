@@ -1,15 +1,8 @@
 import { axiosAPI } from "../config";
 
-interface CommentsType {
-  postId: number;
-  id: number;
-  name: string;
-  email: string;
-  body: string;
-}
-export const comments = {
+export const commentAPI = {
   getCommentsOfPost: async (postId: number) => {
-    const response = await axiosAPI.get<CommentsType[]>(
+    const response = await axiosAPI.get<CommentType[]>(
       `/posts/${postId}/comments`
     );
     return response.data;
