@@ -19,6 +19,7 @@ const postSlice = createSlice({
     },
 
     setPost(state, action: PayloadAction<InitialType>) {
+      console.log(action.payload);
       state.filteredPosts = action.payload.filteredPosts;
       state.initialPosts = action.payload.initialPosts;
     },

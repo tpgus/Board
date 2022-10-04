@@ -23,8 +23,8 @@ function Post(props: PropsType) {
     sendRequest: getCommentsOfPost,
     data: comments,
     error,
-    isLoading,
-  } = useHttp<CommentType>(commentAPI.getCommentsOfPost);
+    status,
+  } = useHttp<CommentType[]>(commentAPI.getCommentsOfPost, []);
 
   useEffect(() => {
     getCommentsOfPost(currentPost.id);
@@ -77,9 +77,11 @@ function Post(props: PropsType) {
           </header>
           <p className={styles["content-body"]}>{currentPost.body}</p>
         </div>
-        {isLoading && <LoadingSpinner />}
-        {!isLoading && error && <p>댓글을 불러오지 못했습니다.</p>}
-        {!isLoading && !error && <CommentList comments={comments} />}
+        {status === "loading" && <LoadingSpinner />}
+        {status === "completed" && error && <p>댓글을 불러오지 못했습니다.</p>}
+        {status === "completed" && !error && (
+          <CommentList comments={comments} />
+        )}
         <footer>
           <span>{`${currentPostIndex + 1} / ${posts.length}개의 글`}</span>
           <div className={styles["actions"]}>
