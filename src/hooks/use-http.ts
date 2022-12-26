@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react";
+
 import axios from "axios";
 
 type StatusType = "ready" | "loading" | "completed";
@@ -15,6 +16,7 @@ export const useHttp = <T>(
   requestFunction: RequestFunctionType<T>,
   initialData: T
 ) => {
+  
   const [data, setData] = useState<T>(initialData);
   const [error, setError] = useState<string | null>(null);
   const [status, setStatus] = useState<StatusType>("ready");

@@ -33,10 +33,7 @@ function PostListItem(props: PropsType) {
   const { id, userId, title } = props.post;
   return (
     <ul>
-      <li
-        className={styles["post"]}
-        onClick={props.onClick.bind(null, props.post)}
-      >
+      <li className={styles["post"]} onClick={() => props.onClick(props.post)}>
         <div>{id}</div>
         <div className={styles["title"]}>{title}</div>
         <div>작성자 {userId}</div>

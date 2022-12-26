@@ -12,6 +12,7 @@ interface PropsType {
   post: PostType;
   onClose: () => void;
 }
+
 function Post(props: PropsType) {
   const [currentPost, setCurrentPost] = useState(props.post);
   const [currentPostIndex, setCurrentPostIndex] = useState(0);

@@ -15,6 +15,7 @@ function PostList() {
   const [modalMessage, setModalMessage] = useState<ModalMessageType | null>(
     null
   );
+  const offset = (currentPage - 1) * postsPerPage;
   const [clickedPost, setClickedPost] = useState<PostType | null>(null);
   const { filteredPosts: postList } = useAppSelector((state) => state.post);
 
@@ -26,8 +27,6 @@ function PostList() {
     document.body.style.overflow = "hidden";
     setClickedPost({ ...post });
   }, []);
-
-  const offset = (currentPage - 1) * postsPerPage;
 
   const posts = useMemo(
     () =>
