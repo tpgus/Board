@@ -1,3 +1,8 @@
+
+[배포 링크](https://tpgus.github.io/) 
+
+---
+
 <details>
 <summary>과제 요구 사항</summary>
 <div markdown="1">
@@ -32,10 +37,7 @@
 <div markdown="1">
 
 <ul>
-<li>
 
-[배포 링크](https://tpgus.github.io/) 
-</li>
 
 <details>
 <summary>게시판 메인 화면</summary>
